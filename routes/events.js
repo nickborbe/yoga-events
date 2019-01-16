@@ -32,7 +32,14 @@ router.post('/new-event', (req, res, next)=>{
         res.json({message: 'Successfully Created Event', event: newEvent})
     })
     .catch((err)=>{
-        res.json(err.message)
+        res.json(err.messageg)
+    })
+})
+
+router.post('/edit/events/:id', (req, res, next)=>{
+    Event.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then((newInfo)=>{
+        res.json({message: 'successfully created event', event: newInfo})
     })
 })
 
