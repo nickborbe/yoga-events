@@ -41,8 +41,19 @@ router.post('/edit/events/:id', (req, res, next)=>{
     .then((newInfo)=>{
         res.json({message: 'successfully created event', event: newInfo})
     })
+    .catch((err)=>{
+        res.json(err.messageg)
+    })
 })
 
-
+router.delete('/remove/event/:id', (req, res, next)=>{
+    Event.findByIdAndRemove(req.params.id)
+    .then((goneEvent)=>{
+        res.json({message: 'successfully deleted event', event: goneEvent})
+    })
+    .catch((err)=>{
+        res.json(err.messageg)
+    })
+})
 
 module.exports = router;
