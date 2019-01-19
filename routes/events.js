@@ -49,7 +49,7 @@ router.post('/edit/events/:id', (req, res, next)=>{
 router.delete('/remove/event/:id', (req, res, next)=>{
     Event.findByIdAndRemove(req.params.id)
     .then((goneEvent)=>{
-        res.json({message: 'successfully deleted event', event: goneEvent})
+        res.json({message: 'event successfully deleted', event: goneEvent})
     })
     .catch((err)=>{
         res.json(err.messageg)
