@@ -39,7 +39,7 @@ router.post('/new-event', (req, res, next)=>{
 router.post('/edit/events/:id', (req, res, next)=>{
     Event.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then((newInfo)=>{
-        res.json({message: 'successfully created event', event: newInfo})
+        res.json({message: 'event succesfully updated', event: newInfo})
     })
     .catch((err)=>{
         res.json(err.messageg)
